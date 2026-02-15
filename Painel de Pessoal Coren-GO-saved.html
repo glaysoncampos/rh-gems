@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel de Pessoal | Coren-GO</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f7ff',
+                            100: '#e0effe',
+                            200: '#bae0fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        },
+                        accent: '#f59e0b',
+                        surface: '#0f172a',
+                        card: 'rgba(30, 41, 59, 0.7)',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Outfit', 'sans-serif'],
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background: radial-gradient(circle at top left, #0f172a, #1e293b, #020617);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        .glass {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: rgba(15, 23, 42, 0.1);
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: rgba(14, 165, 233, 0.3);
+            border-radius: 10px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+            background: rgba(14, 165, 233, 0.5);
+        }
+        .chart-bar {
+            transition: width 1s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .hover-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(14, 165, 233, 0.4);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3), 0 10px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased">
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        <!-- Header -->
+        <header class="mb-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
+            <div>
+                <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-brand-200 to-brand-500">
+                    Painel de Pessoal
+                </h1>
+                <p class="mt-2 text-slate-400 font-medium">Coren-GO • Gestão Estratégica & Transparência</p>
+            </div>
+            <div class="flex items-center space-x-3 text-sm">
+                <span class="px-3 py-1.5 rounded-full bg-brand-900/50 text-brand-200 border border-brand-700/50 flex items-center">
+                    <span class="w-2 h-2 rounded-full bg-brand-400 mr-2 animate-pulse"></span>
+                    Dados Atuais
+                </span>
+                <span class="px-3 py-1.5 rounded-full bg-slate-800 text-slate-300 border border-slate-700">
+                    Nov 2024
+                </span>
+            </div>
+        </header>
+
+        <!-- KPI Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
+            <div class="glass p-6 rounded-3xl hover-card transition-all duration-300">
+                <p class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-1">Custo Total Folha</p>
+                <div class="flex items-end justify-between">
+                    <div>
+                        <h3 class="text-3xl font-display font-bold">R$ 776.625,54</h3>
+                        <p class="text-xs text-slate-500 mt-2">Mensal (Bruto)</p>
+                    </div>
+                    <div class="p-3 bg-brand-500/10 rounded-2xl">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-3xl hover-card transition-all duration-300">
+                <p class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-1">Total Colaboradores</p>
+                <div class="flex items-end justify-between">
+                    <div>
+                        <h3 class="text-3xl font-display font-bold">53</h3>
+                        <p class="text-xs text-slate-500 mt-2">Profissionais Ativos</p>
+                    </div>
+                    <div class="p-3 bg-brand-500/10 rounded-2xl">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                    </div>
+                </div>
+            </div>
+
+            <div class="glass p-6 rounded-3xl hover-card transition-all duration-300">
+                <p class="text-sm font-semibold text-brand-400 uppercase tracking-wider mb-1">Média Salarial</p>
+                <div class="flex items-end justify-between">
+                    <div>
+                        <h3 class="text-3xl font-display font-bold">R$ 14.653,31</h3>
+                        <p class="text-xs text-slate-500 mt-2">Média por Colaborador</p>
+                    </div>
+                    <div class="p-3 bg-brand-500/10 rounded-2xl">
+                        <svg class="w-6 h-6 text-brand-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8v8m-4-5v5m-4-2v2m-2 4h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+            <!-- Cost by Role (Visual Chart) -->
+            <div class="lg:col-span-5 flex flex-col">
+                <div class="glass rounded-3xl p-8 flex-grow">
+                    <div class="flex items-center justify-between mb-8">
+                        <h2 class="text-xl font-display font-bold">Distribuição por Cargo</h2>
+                        <span class="text-xs text-brand-400 font-bold uppercase">Budget 2024</span>
+                    </div>
+                    <div class="space-y-6 overflow-y-auto max-h-[600px] pr-2 custom-scrollbar" id="cost-by-role-container">
+                        <!-- Chart items will be injected here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Detailed Employee List -->
+            <div class="lg:col-span-7 flex flex-col">
+                <div class="glass rounded-3xl p-8 flex-grow overflow-hidden flex flex-col">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-6 gap-4">
+                        <h2 class="text-xl font-display font-bold">Quadro de Colaboradores</h2>
+                        <div class="relative group">
+                            <input 
+                                type="text" 
+                                id="searchInput" 
+                                placeholder="Filtrar nome ou cargo..." 
+                                class="bg-slate-900/50 border border-slate-700 text-slate-200 text-sm rounded-xl focus:ring-brand-500 focus:border-brand-500 block w-full pl-10 pr-4 py-2.5 transition-all outline-none"
+                            >
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none text-slate-500 group-focus-within:text-brand-500">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="overflow-x-auto flex-grow custom-scrollbar">
+                        <table class="w-full text-sm text-left">
+                            <thead class="text-xs text-slate-400 uppercase bg-slate-800/50 sticky top-0 backdrop-blur-md">
+                                <tr>
+                                    <th class="px-4 py-4 font-semibold rounded-tl-xl">Colaborador</th>
+                                    <th class="px-4 py-4 font-semibold">Cargo</th>
+                                    <th class="px-4 py-4 font-semibold text-right">Bruto (R$)</th>
+                                    <th class="px-4 py-4 font-semibold text-right rounded-tr-xl">Líquido (R$)</th>
+                                </tr>
+                            </thead>
+                            <tbody id="employeeTableBody" class="divide-y divide-slate-800/50">
+                                <!-- Table rows will be injected here -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const roleData = [
+            { role: "Enfermeiro Fiscal", cost: 235314.93, count: 15 },
+            { role: "Assistente Administrativo", cost: 150244.75, count: 16 },
+            { role: "Advogado", cost: 35303.19, count: 2 },
+            { role: "Procuradora Geral", cost: 22542.14, count: 1 },
+            { role: "Chefe de Gabinete", cost: 21908.95, count: 1 },
+            { role: "Assessora Financeira", cost: 19227.95, count: 1 },
+            { role: "Assessora de Comunicação", cost: 19227.95, count: 1 },
+            { role: "Assessor Técnico de Obras", cost: 19190.45, count: 1 },
+            { role: "Assessor do DGEP", cost: 19125.95, count: 1 },
+            { role: "Assessor de Gestão Patrimônio", cost: 18736.76, count: 1 },
+            { role: "Assessora de Planejamento", cost: 18041.11, count: 1 },
+            { role: "Assessor Executivo", cost: 16546.94, count: 1 },
+            { role: "Controladora Interna", cost: 15759.46, count: 1 },
+            { role: "Digitalizador", cost: 15305.65, count: 1 },
+            { role: "Assessor de RH", cost: 15105.60, count: 1 },
+            { role: "Advogada", cost: 14606.41, count: 1 },
+            { role: "Assessor Especial", cost: 12981.47, count: 1 },
+            { role: "Assessora de Eventos", cost: 9885.36, count: 1 },
+            { role: "Assistente Gabinete", cost: 9797.12, count: 1 },
+            { role: "Assistente do DGEP", cost: 9582.02, count: 1 },
+            { role: "Assessora de Atendimento", cost: 9452.17, count: 1 },
+            { role: "Web Designer", cost: 8303.33, count: 1 },
+            { role: "Motorista", cost: 7274.90, count: 1 },
+            { role: "Telefonista", cost: 5271.97, count: 1 },
+            { role: "Copeira", cost: 5108.21, count: 1 },
+            { role: "Estagiário", cost: 100.00, count: 1 }
+        ];
+
+        const employeeData = [
+            { name: "ADRIELLY CRISTINA DA CUNHA MARTINS", role: "Assessora de Atendimento", gross: 9452.17, net: 7838.04 },
+            { name: "ALBANIA THAISY BATISTA DA SILVA", role: "Assess.de Dep.Gestão do Exerc. Profissional", gross: 19125.95, net: 14889.26 },
+            { name: "ANA PAULA ALVES DE SOUZA", role: "Assessora de Eventos", gross: 9885.36, net: 8271.23 },
+            { name: "ANDRÉ PEREIRA DA SILVA", role: "Assistente Administrativo", gross: 6773.28, net: 6206.36 },
+            { name: "ANGELICA OLIVEIRA PAULA", role: "Enfermeiro Fiscal", gross: 22152.70, net: 17036.51 },
+            { name: "ΑΝΤΟNIO BAUER MACIEL BATISTA", role: "Assessor Executivo", gross: 16546.94, net: 13062.38 },
+            { name: "ARILDO DE SOUZA", role: "Chefe de Gabinete", gross: 21908.95, net: 16711.58 },
+            { name: "BENEDITO GARCIA GOMES", role: "Motorista", gross: 7274.90, net: 6013.69 },
+            { name: "CARLA DE AQUINO PEREIRA", role: "Assistente Administrativo", gross: 8869.34, net: 6778.36 },
+            { name: "CELIA VIANA FRANCO", role: "Assistente Administrativo", gross: 6860.28, net: 6292.49 },
+            { name: "CHRISTIANE MOREIRA SOUZA", role: "Enfermeiro Fiscal", gross: 15374.09, net: 12041.49 },
+            { name: "CLEUSA DE SOUSA RESENDE MENDES", role: "Enfermeiro Fiscal", gross: 16142.27, net: 12171.42 },
+            { name: "CLEUZENI MORAES DE PAULA", role: "Assessora Financeira", gross: 19227.95, net: 14886.98 },
+            { name: "DANIELLA CRISTINA SALLES", role: "Procuradora Geral", gross: 22542.14, net: 17501.18 },
+            { name: "DEIVID PEREIRA GOMES DE ALENCAR", role: "Assessor de Gestão Des. Patrimônio", gross: 18736.76, net: 14396.37 },
+            { name: "DELEON FERNANDES DE SA", role: "Telefonista", gross: 5271.97, net: 4974.81 },
+            { name: "DIOGO FREIRE DA SILVA", role: "Assessor de Web Designer", gross: 8303.33, net: 6869.68 },
+            { name: "DORAILDE DE PAULA ALVARENGA", role: "Assistente Administrativo", gross: 13831.82, net: 10511.62 },
+            { name: "DYLZENY LOPES", role: "Enfermeiro Fiscal", gross: 16718.81, net: 12589.41 },
+            { name: "ELVIANE DE CASTRO QUEIROZ", role: "Advogada", gross: 14606.41, net: 12109.41 },
+            { name: "ELYKERSON FRANCISCO SANTOS", role: "Assistente Administrativo", gross: 8390.68, net: 6019.55 },
+            { name: "ERNANDES ALVES NEVES", role: "Assistente Administrativo", gross: 15645.17, net: 11753.71 },
+            { name: "FERNANDA JOYCE ALVES LEITE", role: "Assistente do DGEP", gross: 9582.02, net: 7967.89 },
+            { name: "FLÁVIO HENRIQUE CRISPIM BRAGA", role: "Assistente Administrativo", gross: 6825.40, net: 4518.03 },
+            { name: "FRANKLIN SILVA BRANDAO", role: "Advogado", gross: 17340.90, net: 13623.48 },
+            { name: "GIOVANNA DA SILVA BARROS", role: "Enfermeiro Fiscal", gross: 16604.20, net: 12537.06 },
+            { name: "GLAYSON CAMPOS DA SILVA", role: "Assessor Administr. e de Recursos Humanos", gross: 15105.60, net: 11825.32 },
+            { name: "JANAINA RODRIGUES DUARTE", role: "Assistente Administrativo", gross: 8196.12, net: 7103.51 },
+            { name: "JOSANE PIRES DA SILVA", role: "Assistente Administrativo", gross: 13849.83, net: 9282.79 },
+            { name: "KARLA RODRIGUES CABRAL LOUZADA", role: "Enfermeiro Fiscal", gross: 15898.20, net: 11939.40 },
+            { name: "ΚΑΤΙΑNE DE OLIVEIRA CAMPOS GONCALVES", role: "Enfermeiro Fiscal", gross: 19342.58, net: 15007.80 },
+            { name: "KISSIA RAYDES R. A. DE QUEIROZ MIRANDA", role: "Enfermeiro Fiscal", gross: 15825.35, net: 12449.18 },
+            { name: "LETICIA ROMANI DE FARIA BRASIL", role: "Estagiário", gross: 100.00, net: 1200.00 },
+            { name: "LUAN CARLOS GOMES MARQUES", role: "Assistente Administrativo", gross: 13369.18, net: 10639.37 },
+            { name: "LUCAS RORIZ REIS", role: "Advogado", gross: 17962.29, net: 13886.88 },
+            { name: "LUCIANA FREIRE D EÇA NOGUEIRA SANTOS", role: "Assessora de Planejamento", gross: 18041.11, net: 14128.91 },
+            { name: "LUZIA NOGUEIRA REIS DOMINGUES", role: "Enfermeiro Fiscal", gross: 17152.70, net: 13053.85 },
+            { name: "MARCOS RICARDO VIEIRA GOMES", role: "Assistente Administrativo", gross: 13682.22, net: 10870.58 },
+            { name: "MARCOS VINICIUS JOSE RIBEIRO", role: "Enfermeiro Fiscal", gross: 15179.16, net: 7598.23 },
+            { name: "MARIA DE JESUS ALVES MILHOMENS", role: "Copeira", gross: 5108.21, net: 4406.28 },
+            { name: "MARIA DE JESUS BRAGA PINTO", role: "Assistente Administrativo", gross: 13847.90, net: 9019.82 },
+            { name: "MARIA FATIMA DOS SANTOS", role: "Assessora de Comunicação", gross: 19227.95, net: 14939.12 },
+            { name: "MARILIA NOGUEIRA DE ABREU", role: "Enfermeiro Fiscal", gross: 11788.83, net: 10332.38 },
+            { name: "MELLANY DE J. SILVEIRA MATOS MODESTO", role: "Enfermeiro Fiscal", gross: 15236.73, net: 11248.57 },
+            { name: "MOISES CARLOS BRAGA", role: "Digitalizador", gross: 15305.65, net: 11403.62 },
+            { name: "NIVIA ROSA DA SILVA", role: "Controladora Interna", gross: 15759.46, net: 13024.59 },
+            { name: "RAFAEL CASEMIRO BAZILIO", role: "Assistente Administrativo", gross: 9277.41, net: 7345.80 },
+            { name: "ROGERIO MATHEUS BARBOSA", role: "Assessor Técnico de Obras", gross: 19190.45, net: 14849.48 },
+            { name: "STHEFANNY CRISTHINA DE SOUSA", role: "Assessora Especial da Presidente", gross: 12981.47, net: 10963.48 },
+            { name: "ΤΑΝΙΑ BORGES DIAS", role: "Assistente Administrativo", gross: 8361.68, net: 7269.07 },
+            { name: "THIAGO MOURA MARRA", role: "Assistente Administrativo", gross: 8561.68, net: 6606.81 },
+            { name: "VALERIA CARDOSO GUIMARÃES", role: "Assistente da Chefia de Gabinete", gross: 9797.12, net: 8235.13 },
+            { name: "VANESSA DA SILVA PALANDRANI", role: "Enfermeiro Fiscal", gross: 16215.58, net: 12712.28 }
+        ];
+
+        const formatCurrency = (val) => {
+            return new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(val);
+        };
+
+        // Render Cost by Role
+        const renderCostByRole = () => {
+            const container = document.getElementById('cost-by-role-container');
+            const maxCost = Math.max(...roleData.map(r => r.cost));
+
+            container.innerHTML = roleData.map(item => `
+                <div class="group">
+                    <div class="flex justify-between items-center mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="text-sm font-semibold text-slate-200">${item.role}</span>
+                            <span class="text-[10px] bg-brand-500/10 text-brand-400 px-1.5 py-0.5 rounded border border-brand-500/20">${item.count}</span>
+                        </div>
+                        <span class="text-sm font-mono text-brand-300 font-bold">${formatCurrency(item.cost)}</span>
+                    </div>
+                    <div class="w-full bg-slate-800 rounded-full h-2 shadow-inner overflow-hidden">
+                        <div class="chart-bar h-full bg-gradient-to-r from-brand-600 to-brand-400 rounded-full" 
+                             style="width: 0%" 
+                             data-width="${(item.cost / maxCost) * 100}%">
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+
+            // Trigger animation after render
+            setTimeout(() => {
+                const bars = document.querySelectorAll('.chart-bar');
+                bars.forEach(bar => {
+                    bar.style.width = bar.dataset.width;
+                });
+            }, 100);
+        };
+
+        // Render Employee Table
+        const renderTable = (filter = "") => {
+            const tbody = document.getElementById('employeeTableBody');
+            const filtered = employeeData.filter(e => 
+                e.name.toLowerCase().includes(filter.toLowerCase()) || 
+                e.role.toLowerCase().includes(filter.toLowerCase())
+            );
+
+            tbody.innerHTML = filtered.map(emp => `
+                <tr class="hover:bg-brand-500/5 transition-colors group">
+                    <td class="px-4 py-4">
+                        <div class="flex items-center">
+                            <div class="w-8 h-8 rounded-full bg-gradient-to-br from-brand-700 to-slate-800 flex items-center justify-center mr-3 text-[10px] font-bold text-brand-100 group-hover:scale-110 transition-transform">
+                                ${emp.name.split(' ').map(n => n[0]).slice(0, 2).join('')}
+                            </div>
+                            <span class="font-medium text-slate-200 text-xs md:text-sm tracking-tight">${emp.name}</span>
+                        </div>
+                    </td>
+                    <td class="px-4 py-4">
+                        <span class="text-xs text-slate-400">${emp.role}</span>
+                    </td>
+                    <td class="px-4 py-4 text-right font-mono text-slate-300">
+                        ${formatCurrency(emp.gross)}
+                    </td>
+                    <td class="px-4 py-4 text-right font-mono text-brand-400 font-semibold">
+                        ${formatCurrency(emp.net)}
+                    </td>
+                </tr>
+            `).join('');
+        };
+
+        // Search listener
+        document.getElementById('searchInput').addEventListener('input', (e) => {
+            renderTable(e.target.value);
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            renderCostByRole();
+            renderTable();
+        });
+    </script>
+</body>
+</html>
